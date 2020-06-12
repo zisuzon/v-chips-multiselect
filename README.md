@@ -5,20 +5,18 @@
 yarn install
 ```
 
-### Compiles and hot-reloads for development
+### To run the Component stand alone
 ```
-yarn serve
+yarn dev
 ```
 
-### Compiles and minifies for production
+### To build the pulgin
 ```
 yarn build
 ```
 
-### Lints and fixes files
-```
-yarn lint
-```
+## Change the default component name according to your component and update the name in other places
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+```
+src/TheComponent.vue
+```
