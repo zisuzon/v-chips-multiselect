@@ -15,7 +15,7 @@ yarn dev
 yarn build
 ```
 
-## Change the default component name according to your component and update the name in other places
+Change the default component name according to your component and update the name in other places
 
 ```
 src/TheComponent.vue
