@@ -1,4 +1,4 @@
-# @zisuzon/v-vertical-progress-steps
+# vue-plugin-development-boilerplate
 
 ## Project setup
 ```
