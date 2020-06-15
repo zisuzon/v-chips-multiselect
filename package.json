@@ -1,14 +1,16 @@
 {
-  "name": "@zisuzon/v-vertical-progress-steps",
-  "version": "0.1.0",
+  "name": "v-chips-multiselect",
+  "version": "0.0.1",
   "private": true,
+  "main": "./dist/VChipsMultiselect",
   "scripts": {
-    "dev": "vue serve src/TheComponent.vue",
+    "dev": "vue serve src/ChipsMultiselect.vue",
     "build": "webpack --config config/webpack.config.js"
   },
   "dependencies": {
     "core-js": "^3.6.5",
-    "vue": "^2.6.11"
+    "vue": "^2.6.11",
+    "vue-on-click-outside": "^1.0.3"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.4.0",
@@ -45,9 +47,4 @@
     },
     "rules": {}
   },
-  "browserslist": [
-    "> 1%",
-    "last 2 versions",
-    "not dead"
-  ]
 }
