@@ -4,11 +4,17 @@
     <div class="selecteditems" @click.prevent="activate()">
       <ul class="chips">
         <template>
-          <li v-for="item in selectedItems" :key="item.id" class="chips__item">
-            {{ item.name }}
-            <span class="chips--remove" @click.stop="removeItem(item)"><b>x</b></span>
+          <li v-for="item in value" :key="item.id" class="chips__item">
+            <template v-if="sortingProperty">
+              <span>{{ item[sortingProperty] }}</span>
+            </template>
+            <template v-else>
+              {{ item }}
+            </template>
+            <span class="chips--remove" @click.stop="onRemoveItem(item)"><b>x</b></span>
           </li>
         </template>
+
         <li class="chips__itemInput">
           <input 
             v-model="searchedText"
@@ -25,8 +31,13 @@
 
     <div v-if="showList" class="allitems">
       <ul>
-        <li class="allitems__list" v-for="(item) in filteredAllItems" :key="item.id" @click="atSelectItem(item)">
-          <span>{{ item.name }}</span>
+        <li class="allitems__list" v-for="(item) in filteredAllItems" :key="item.id" @click="onSelectItem(item)">
+          <template v-if="sortingProperty">
+            <span>{{ item[sortingProperty] }}</span>
+          </template>
+          <template v-else>
+            {{ item }}
+          </template>
         </li>
       </ul>
     </div>
@@ -37,84 +48,76 @@
 <script>
 import { mixin as onClickOutside } from 'vue-on-click-outside'
 
+const sortBy = (key) => {
+  return (a, b) => (a[key] > b[key]) ? 1 : ((b[key] > a[key]) ? -1 : 0);
+};
+
 export default {
   mounted () {
     this.selectedItems = []
   },
-  // props: ['items', 'selectedPrevItems'],
+  // props: ['items', 'value'],
+  props: {
+    items: {
+      type: Array,
+      required: true,
+    },
+    value: {
+      type: Array
+    },
+    sortingProperty: {
+      type: String,
+      default: null
+    }
+  },
   mixins: [onClickOutside],
   data () {
     return {
       searchedText: null,
       selectedItems: null,
       showList: false,
-      items: [
-        {
-          id: 1,
-          name: 'Ruhul Amin'
-        },
-        {
-          id: 2,
-          name: 'Titon'
-        },
-        {
-          id: 3,
-          name: 'Sumon'
-        },
-        {
-          id: 4,
-          name: 'Suzon'
-        },
-      ]
-    }
-  },
-  watch: {
-    'selectedPrevItems.length': {
-      handler: function () {
-        this.selectedItems = [...this.selectedPrevItems]
-        setTimeout(() => {
-          this.$root.$emit('select', this.selectedPrevItems)
-        }, 0)
-      },
-      deep: true,
-      immediate: true
     }
   },
   computed: {
+    allItems () {
+      let items = [...this.items]
+      if (!this.sortingProperty) return items.sort()
+      return items.sort(sortBy(this.sortingProperty))
+    },
     filteredAllItems () {
-      let clonedItems = [...this.items]
       if (this.searchedText) {
-        let filteredItems = clonedItems.filter((i) => {
+        let filteredItems = this.allItems.filter((i) => {
           return i.name.toLowerCase().includes(this.searchedText.toLowerCase())
         })
         return filteredItems
-        // return sortBy(filteredItems, ['id'])
       } else {
-        return clonedItems
-        // return sortBy(clonedItems, ['id'])
+        return this.allItems
       }
     }
   },
   methods: {
-    atSelectItem (item) {
+    onSelectItem (item) {
       this.selectedItems.push(item)
-      let indexOfItem = this.filteredAllItems.findIndex((i) => {
+
+      this.$emit('input', this.selectedItems)
+
+      let indexOfItem = this.allItems.findIndex((i) => {
         return i.id === item.id
       })
-      this.filteredAllItems.splice(indexOfItem, 1)
+      this.allItems.splice(indexOfItem, 1)
       this.searchedText = null
-      this.$root.$emit('select', this.selectedItems)
     },
-    removeItem (item) {
-      this.filteredAllItems.push(item)
+    onRemoveItem (item) {
+      this.allItems.push(item)
+      this.sortingProperty ? this.allItems.sort(sortBy(this.sortingProperty)) : this.allItems.sort()
+
       let indexOfItem = this.selectedItems.findIndex((i) => {
         return i.id === item.id
       })
       this.selectedItems.splice(indexOfItem, 1)
-      this.$root.$emit('select', this.selectedItems)
+      this.$emit('input', this.selectedItems)
     },
     activate () {
-      // this.$refs.search.focus()
       this.showList = true
     },
     deactivate () {
