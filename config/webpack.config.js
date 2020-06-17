@@ -26,7 +26,7 @@ module.exports = {
       {
         test: /\.s[ac]ss$/i,
         use: [
-          'vue-style-loader',
+          'style-loader',
           'css-loader',
           'sass-loader'
         ]

@@ -1,6 +1,6 @@
 {
   "name": "v-chips-multiselect",
-  "version": "0.0.5",
+  "version": "0.0.7",
   "description": "Chips multiselect component for vue js",
   "private": false,
   "main": "./dist/index.js",
@@ -9,11 +9,9 @@
     "email": "suzon.zahid@gmail.com",
     "url": "http://zisuzon.info/"
   },
-  "repository": {
-    "type": "git",
-    "url": "git.com"
-  },
-  "homepage": "https://github.com/owner/project#readme",
+  "repository": "https://github.com/zisuzon/v-chips-multiselect",
+  "homepage": "https://github.com/zisuzon/v-chips-multiselect",
+  "bugs": "https://github.com/zisuzon/v-chips-multiselect/issues",
   "keywords": [
     "chips",
     "chips-multiselect",
@@ -31,7 +29,7 @@
   ],
   "scripts": {
     "dev": "vue serve src/TesterComponent.vue",
-    "build": "webpack --config config/webpack.config.js"
+    "build": "webpack --mode production --config config/webpack.config.js"
   },
   "dependencies": {
     "core-js": "^3.6.5",
@@ -39,7 +37,6 @@
     "vue-on-click-outside": "^1.0.3"
   },
   "devDependencies": {
-    "@babel/core": "^7.4.5",
     "@vue/cli-plugin-babel": "~4.4.0",
     "@vue/cli-plugin-eslint": "~4.4.0",
     "@vue/cli-service": "~4.4.0",
@@ -70,9 +67,9 @@
       "plugin:vue/essential",
       "eslint:recommended"
     ],
+    "rules": {},
     "parserOptions": {
       "parser": "babel-eslint"
-    },
-    "rules": {}
+    }
   }
 }
