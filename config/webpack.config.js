@@ -5,7 +5,7 @@ module.exports = {
   entry: path.resolve(__dirname + './../src/index.js'),
   output: {
     path: path.resolve(__dirname + './../dist'),
-    filename: 'VChipsMultiselect.js'
+    filename: 'index.js'
   },
   module: {
     rules: [{
@@ -26,9 +26,9 @@ module.exports = {
       {
         test: /\.s[ac]ss$/i,
         use: [
-          'style-loader',
+          'vue-style-loader',
           'css-loader',
-          'sass-loader',
+          'sass-loader'
         ]
       },
     ]

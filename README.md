@@ -1,4 +1,4 @@
-# vue-plugin-development-boilerplate
+# Chips multiselect component for vue js
 
 ## Project setup
 ```

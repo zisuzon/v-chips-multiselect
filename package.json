@@ -1,8 +1,34 @@
 {
   "name": "v-chips-multiselect",
-  "version": "0.0.1",
-  "private": true,
-  "main": "./dist/VChipsMultiselect",
+  "version": "0.0.5",
+  "description": "Chips multiselect component for vue js",
+  "private": false,
+  "main": "./dist/index.js",
+  "author": {
+    "name": "Zahidul Islam Suzon",
+    "email": "suzon.zahid@gmail.com",
+    "url": "http://zisuzon.info/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git.com"
+  },
+  "homepage": "https://github.com/owner/project#readme",
+  "keywords": [
+    "chips",
+    "chips-multiselect",
+    "vue",
+    "multiselect",
+    "select",
+    "vue2",
+    "nuxt",
+    "spa",
+    "search"
+  ],
+  "license": "ISC",
+  "files": [
+    "dist/*"
+  ],
   "scripts": {
     "dev": "vue serve src/TesterComponent.vue",
     "build": "webpack --config config/webpack.config.js"
@@ -13,6 +39,7 @@
     "vue-on-click-outside": "^1.0.3"
   },
   "devDependencies": {
+    "@babel/core": "^7.4.5",
     "@vue/cli-plugin-babel": "~4.4.0",
     "@vue/cli-plugin-eslint": "~4.4.0",
     "@vue/cli-service": "~4.4.0",
@@ -27,6 +54,7 @@
     "file-loader": "^6.0.0",
     "node-sass": "^4.14.1",
     "sass-loader": "^8.0.2",
+    "style-loader": "^1.2.1",
     "vue-loader": "^15.9.2",
     "vue-template-compiler": "^2.6.11",
     "webpack": "^4.43.0",

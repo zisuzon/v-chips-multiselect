@@ -1,4 +1,4 @@
-import ChipsMultiselect from "./ChipsMultiselect"
+import ChipsMultiselect from "./ChipsMultiselect.vue"
 
 function install(Vue) {
   if (install.installed) return
