@@ -2,7 +2,7 @@
   <div>
     <h1>Test my component</h1>
     <hr>
-    <ChipsMultiselect v-model="selectedItems" :items='items' :sorting-property="'name'" />
+    <ChipsMultiselect v-model="selectedItems" :items='items3' :sorting-property="'name'" />
     <!-- <ChipsMultiselect v-model="selectedItems" :items='items2' /> -->
   </div>
 </template>
@@ -63,25 +63,29 @@ export default {
       items2: ['Ruhul Amin', 'Titon', 'Sumon', 'Suzon'],
       items3: [
         {
-          id: 1,
-          text: "Home",
-          href: "/"
+          id: 6,
+          name: 'Javascript'
         },
         {
-          id: 2,
-          text: "Pictures",
-          href: "/pictures"
+          id: 7,
+          name: 'PHP'
         },
         {
-          id: 3,
-          text: "Summer 15",
-          href: "/pictures/summer-15"
+          id: 8,
+          name: 'Node'
         },
         {
-          id: 4,
-          text: "Italy",
-          active: true
-        }
+          id: 9,
+          name: 'Python'
+        },
+        {
+          id: 10,
+          name: 'Rust'
+        },
+        {
+          id: 11,
+          name: 'Java'
+        },
       ]
     }
   },
