@@ -1,6 +1,6 @@
 # Chips multiselect component for vue js
 
-![Alt Text](https://giphy.com/gifs/cmZUSPkI1J3fTn3PDg)
+![Demo](https://media.giphy.com/media/cmZUSPkI1J3fTn3PDg/giphy.gif)
 
 ## Project setup
 ```
