@@ -1,5 +1,7 @@
 # Chips multiselect component for vue js
 
+![Alt Text](https://media.giphy.com/media/vFKqnCdLPNOKc/giphy.gif)
+
 ## Project setup
 ```
 yarn install
