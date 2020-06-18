@@ -60,7 +60,29 @@ export default {
         },
 
       ],
-      items2: ['Ruhul Amin', 'Titon', 'Sumon', 'Suzon']
+      items2: ['Ruhul Amin', 'Titon', 'Sumon', 'Suzon'],
+      items3: [
+        {
+          id: 1,
+          text: "Home",
+          href: "/"
+        },
+        {
+          id: 2,
+          text: "Pictures",
+          href: "/pictures"
+        },
+        {
+          id: 3,
+          text: "Summer 15",
+          href: "/pictures/summer-15"
+        },
+        {
+          id: 4,
+          text: "Italy",
+          active: true
+        }
+      ]
     }
   },
   components: {

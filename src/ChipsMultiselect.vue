@@ -55,7 +55,6 @@ export default {
   mounted () {
     this.selectedItems = []
   },
-  // props: ['items', 'value'],
   props: {
     items: {
       type: Array,
@@ -86,7 +85,11 @@ export default {
     filteredAllItems () {
       if (this.searchedText) {
         let filteredItems = this.allItems.filter((i) => {
-          return i.name.toLowerCase().includes(this.searchedText.toLowerCase())
+          if (this.sortingProperty) {
+            return i[this.sortingProperty].toLowerCase().includes(this.searchedText.toLowerCase())
+          } else {
+            return i.toLowerCase().includes(this.searchedText.toLowerCase())
+          }
         })
         return filteredItems
       } else {
@@ -127,5 +130,62 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-  @import './../styles/styles'
+.chips
+  background-color: #ffffff
+  border: 1px solid #dbdbdb
+  border-radius: 4px
+  color: #363636
+  padding-bottom: calc(0.375em - 1px)
+  padding-left: calc(0.625em - 1px)
+  padding-right: calc(0.625em - 1px)
+  padding-top: calc(0.375em - 1px)
+  cursor: pointer
+
+  &--remove
+    margin-right: 1px
+    margin-left: 3px
+    color: #cc0029
+
+  &__item
+    display: inline-block
+    background-color: rgba(50, 115, 220, .2)
+    margin: 4px
+    padding: 6px
+    border-radius: 6px
+    transition: 0.3s
+
+    &:hover
+      background-color: rgba(50, 115, 220, .3)
+
+  &__itemInput
+    display: inline-block
+
+  &__input--fake
+    border: none
+    width: 100%
+    line-height: 1.42857143
+    font-size: 1rem
+    height: 36px
+
+    &:focus,
+    &:active 
+      outline: none
+
+.allitems
+  cursor: pointer
+  border: 1px solid #dbdbdb
+  max-height: 150px
+  height: calc(100vh - 240px)
+  overflow-y: scroll
+
+  ul
+    list-style: none
+
+  &__list
+    padding: 6px
+    transition: 0.3s
+    
+    &:hover
+      background: rgba(50, 115, 220, 1)
+      color: #ffffff
 </style>
